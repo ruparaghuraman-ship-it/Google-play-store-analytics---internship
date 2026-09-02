@@ -47,9 +47,8 @@ def is_task1_window(now: datetime | None = None) -> bool:
 def prepare_task1(apps: pd.DataFrame, reviews: pd.DataFrame) -> pd.DataFrame:
     """Apply every Task 1 filter and return chart-ready rows.
 
-    load_data() already aggregates review subjectivity by app and merges
-    Mean_Subjectivity onto the apps DataFrame, so this function must not
-    merge the review statistics a second time.
+    Mean_Subjectivity is already aggregated per-app by load_data(), so no
+    additional merge with the reviews table is needed here.
     """
     d = apps.copy()
     d["Category"] = d["Category"].astype(str)
