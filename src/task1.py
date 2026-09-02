@@ -25,7 +25,7 @@ CATEGORIES = {
 CATEGORY_LABELS = {
     "BEAUTY": "सुंदरता",       # Hindi
     "BUSINESS": "வணிகம்",      # Tamil
-    "DATING": "Dating",        # Kept English: the brief only specifies German for this label.
+    "DATING": "Partnersuche",  # German
 }
 
 IST = ZoneInfo("Asia/Kolkata")
