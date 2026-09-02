@@ -47,16 +47,11 @@ def is_task1_window(now: datetime | None = None) -> bool:
 def prepare_task1(apps: pd.DataFrame, reviews: pd.DataFrame) -> pd.DataFrame:
     """Apply every Task 1 filter and return chart-ready rows.
 
-    Subjectivity is aggregated per app because the Play Store dataset is
-    app-level while User Reviews contains multiple review records per app.
+    load_data() already aggregates review subjectivity by app and merges
+    Mean_Subjectivity onto the apps DataFrame, so this function must not
+    merge the review statistics a second time.
     """
-    subjectivity = (
-        reviews.groupby("App", as_index=False)["Sentiment_Subjectivity"]
-        .mean()
-        .rename(columns={"Sentiment_Subjectivity": "Mean_Subjectivity"})
-    )
-
-    d = apps.merge(subjectivity, on="App", how="left")
+    d = apps.copy()
     d["Category"] = d["Category"].astype(str)
     d["App"] = d["App"].astype(str)
 
