@@ -19,6 +19,7 @@ CATEGORIES = {
     "DATING",
     "ENTERTAINMENT",
     "SOCIAL",
+    "EVENTS",
 }
 
 # Required display translations from the internship brief.
